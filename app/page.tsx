@@ -14,31 +14,38 @@ export default async function Home() {
       <h2>Recent Posts</h2>
       <div className="grid grid-cols-3 gap-8">
         {posts.map((post) => (
-          <div className="flex flex-col relative overflow-clip w-72" key={post.name}>
+          <Link
+            className="group relative flex w-72 flex-col"
+            key={post.name}
+            href={post.route}
+          >
+            <div className="absolute inset-x-0 -top-2.5 flex">
+              <div className="mx-auto flex translate-y-1 select-none justify-center rounded border border-zinc-200/30 bg-zinc-800/75 px-2 text-sm opacity-0 backdrop-blur transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <p className="whitespace-nowrap">
+                  {simpleDateFormat(post.posted)}
+                </p>
+              </div>
+            </div>
             <Image
               src={post.cover}
-              className="aspect-[2/1] object-cover w-72 rounded-t-lg"
+              className="aspect-[2/1] w-72 rounded-t-lg object-cover"
               width={400}
               height={200}
               alt={`Cover image for ${post.name}`}
             />
+            <div className=""></div>
             <Image
               src={post.cover}
-              className="aspect-[2/1] object-cover w-72 rounded-t-lg absolute -z-10 blur-lg"
+              className="absolute -z-10 aspect-[2/1] w-72 rounded-t-lg object-cover blur-lg brightness-50"
               width={400}
               height={200}
               alt=""
             />
-            <div className="grow border-b border-x rounded-b-lg border-zinc-800 pt-6 px-4 pb-2 bg-zinc-400/5">
-              <h3 className="font-medium truncate">{post.name}</h3>
-              <p className="text-xs text-zinc-500">
-                {simpleDateFormat(post.posted)}
-              </p>
-              <p className="mt-4 text-zinc-300">
-                {post.description}
-              </p>
+            <div className="grow rounded-b-lg border-x border-b border-zinc-800 bg-zinc-400/5 px-4 pb-2 pt-4">
+              <h3 className="truncate font-medium">{post.name}</h3>
+              <p className="text-sm text-zinc-400">{post.description}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <Link href="">

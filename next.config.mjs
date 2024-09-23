@@ -1,21 +1,11 @@
-import createMDX from "@next/mdx";
-import remarkGfm from "remark-gfm";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	transpilePackages: ['next-mdx-remote'],
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  transpilePackages: ["next-mdx-remote"],
   experimental: {
     // https://nextjs.org/docs/app/building-your-application/configuring/mdx#global-styles-and-components
     mdxRs: true,
   },
 };
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm],
-  },
-});
-
 // Merge MDX config with Next.js config
-export default withMDX(nextConfig);
+export default nextConfig;
