@@ -10,7 +10,7 @@ export interface MDXMetaData {
 }
 
 // thanks leerob
-// apparently nextjs doesn't like async, but I didn't feel like reinventing the wheel here again to take out the frontmatter
+// apparently nextjs doesn't like me reading files in an async function, but I didn't feel like reinventing the wheel here again to take out the frontmatter
 function parseFrontmatter(fileContent: string) {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
@@ -30,23 +30,15 @@ function parseFrontmatter(fileContent: string) {
 }
 
 export const readMDXFile = (path: string) => {
-  console.log(
-    "~~~~~~RAN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
-  );
   const rawContent = fs.readFileSync(path, "utf-8");
-  console.log(rawContent);
   return parseFrontmatter(rawContent);
 };
 
 export const getAllPosts = () => {
-  console.log(
-    "RAN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
-  );
+  console.log("ran")
   const files = globbySync(["./app/posts/**/page.mdx"]);
-  //console.log(files)
 
   const metadataArray = files.map((file) => {
-    // console.log(path.join(process.cwd(), file))
     const fileData = readMDXFile(path.join(process.cwd(), file));
     const routeMatch = /\.\/app\/posts\/([^\/]+)\/page\.mdx/;
     const date = fileData.metadata.posted as string;
