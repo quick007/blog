@@ -5,19 +5,19 @@ import Link from "next/link";
 
 export const revalidate = false;
 
-export default async function Home() {
-  const posts = await getPosts({ limit: 3, sortBy: "date" });
+export default function Home() {
+  const posts = getPosts({ limit: 3, sortBy: "date" });
 
   return (
     <main className="flex flex-col items-center">
       <h1>Home</h1>
       <h2>Recent Posts</h2>
       <div className="grid grid-cols-3 gap-8">
-        {posts.map((post) => (
+        {posts.map(({ metadata: post, route }) => (
           <Link
             className="group relative flex w-72 flex-col"
             key={post.name}
-            href={post.route}
+            href={route}
           >
             <div className="absolute inset-x-0 -top-2.5 flex">
               <div className="mx-auto flex translate-y-1 select-none justify-center rounded border border-zinc-200/30 bg-zinc-800/75 px-2 text-sm opacity-0 backdrop-blur transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
