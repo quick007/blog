@@ -35,7 +35,6 @@ export const readMDXFile = (path: string) => {
 };
 
 export const getAllPosts = () => {
-  console.log("ran")
   const files = globbySync(["./app/posts/**/page.mdx"]);
 
   const metadataArray = files.map((file) => {

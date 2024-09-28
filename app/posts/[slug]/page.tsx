@@ -31,7 +31,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           {simpleDateFormat(metadata.posted)}
         </p>
       </div>
-      <article className="prose">
+      <article className="prose prose-zinc prose-invert">
         <MDXRemote source={content} />
       </article>
     </div>
