@@ -1,12 +1,25 @@
 ---
   name: "It Just Works"
-  description: "If it's stupid and it works, is it still stupid?"
+  description: "If it's stupid and it works, is it still stupid? What is DX and why it matters."
   posted: "9/22/2024"
   cover: "/blog/todd.jpg"
 ---
 
-# wow what a cool blog
+At one point in time, this blog used two different npm packages to transform markdown to HTML. One for getting the blog data, and another for rendering the blog itself. While probably not ideal for build times and bad for many, *many* other reasons, this solution works. It works in the sense that the end user wouldn't have noticed a differance between my blog using two packages vs. one.
 
-woah dude
+But when we say "it just works," that's interpereted as the user experiance (or UX), works as intended. It might be spagatti on the inside, but seemless on the outside. That present-day seemlessness comes with a tradeoff. Sometimes, that tradeoff even hurts our precious UX down the line.
+
+Formally, we might define how spagatti our code is as developer experience (or DX). A full definition might encompass many different aspects of a codebase, even extending to a workplace. But for the sake of brevity, I'm defining it as a function of tools + written code. 
+
+Starting with tools, it's crucial they're both practical and easy to use. Just because it's possible to use the back of a screwdriver to nail a screw into a wall, a hammer might to the job better and faster. And becase that screwdriver was used once, it might become the standerd. Or worse, half the nails will be nailed in with a screwdriver the other half with a hammer, just like my two markdown packages. Maybe in the future, some intern will be tasked with taking out all of the screw-nailed-nails. (Unfortunaly for my blog, that intern ended up being me)
+
+Much more than in traditional construction, there is an inextricable link between the tools we use and their respective output. When we use wrong or inefficent tools, the DX becomes worse. While bad tools will likely be while the right tools might lead a codebase towards s
+
+Good DX starts with good tools, and that includes the tools we create for ourselves. 
 
 
+
+On the WAN show, a weekly podcast hosted by Linus from LTT, he's said multiple times something along the lines of "If it's stupid and it works, is it still stupid?"
+
+
+But even if the user experiance (UX) is great, that doesn't mean developer experiance (DX) is too. And in the long run, a bad DX can end up creating a bad UX too. 
